@@ -26,3 +26,12 @@ Route::get('/pages/profile', function () {
 Route::get('/index', function () {
     return view('index');
 });
+
+Route::get('/login', function () {
+    return view('auth.login');
+});
+
+Route::get('/regist', function () {
+    return view('auth.register');
+});
+
