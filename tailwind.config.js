@@ -6,7 +6,15 @@ export default {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        inter: ["'Inter', sans-serif"]
+      },
+      colors: {
+        customBlue : '#0047ab',
+        customLightBlue : '#7ebbeb'
+      }
+    },
   },
   plugins: [],
 }
