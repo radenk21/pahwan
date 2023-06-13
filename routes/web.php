@@ -22,7 +22,3 @@ Route::get('/pages/tables', function () {
 Route::get('/pages/profile', function () {
     return view('admin.pages.profile');
 });
-
-Route::get('/index', function () {
-    return view('index');
-});
