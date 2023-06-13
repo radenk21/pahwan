@@ -16,11 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.index');
 });
-Route::get('/pages/tables', function () {
-    return view('admin.pages.tables');
+Route::get('/pages/kategori', function () {
+    return view('admin.kategori');
+});
+Route::get('/pages/posts', function () {
+    return view('admin.posts');
 });
 Route::get('/pages/profile', function () {
-    return view('admin.pages.profile');
+    return view('admin.profile');
 });
 
 Route::get('/index', function () {
@@ -35,3 +38,12 @@ Route::get('/regist', function () {
     return view('auth.register');
 });
 
+Route::get('/pages/report-lists', function () {
+    return view('admin.report-lists');
+});
+Route::get('/pages/user-lists', function () {
+    return view('admin.user-lists');
+});
+Route::get('/index', function () {
+    return view('index');
+});

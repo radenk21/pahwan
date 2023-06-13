@@ -29,6 +29,7 @@ class MainLayout extends Component
             "Kategori"    => "/kategori",
             "User List"   => "/user-lists",
             "Report List" => "/report-lists",
+            "Profile" => "/profile",
         ];
         return view('admin.layouts.main', compact('navbar'));
     }
