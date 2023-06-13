@@ -4,19 +4,18 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('arsip', function (Blueprint $table) {
+        Schema::create('arsips', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('pengguna_id');
-            $table->unsignedBigInteger('pertanyaan_id');
-            $table->foreign('pengguna_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('pertanyaan_id')->references('id')->on('pertanyaan')->onDelete('cascade');
+            $table->unsignedBigInteger('jawaban_id');
+            $table->foreign('pengguna_id')->references('id')->on('penggunas')->onDelete('cascade');
+            $table->foreign('jawaban_id')->references('id')->on('jawabans')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('arsip');
+        Schema::dropIfExists('arsips');
     }
 };
