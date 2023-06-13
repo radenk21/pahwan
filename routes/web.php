@@ -19,3 +19,6 @@ Route::get('/', function () {
 Route::get('/pages/tables', function () {
     return view('admin.pages.tables');
 });
+Route::get('/pages/profile', function () {
+    return view('admin.pages.profile');
+});
