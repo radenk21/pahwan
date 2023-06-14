@@ -25,6 +25,19 @@ Route::get('/pages/posts', function () {
 Route::get('/pages/profile', function () {
     return view('admin.profile');
 });
+
+Route::get('/index', function () {
+    return view('index');
+});
+
+Route::get('/login', function () {
+    return view('auth.login');
+});
+
+Route::get('/regist', function () {
+    return view('auth.register');
+});
+
 Route::get('/pages/report-lists', function () {
     return view('admin.report-lists');
 });
