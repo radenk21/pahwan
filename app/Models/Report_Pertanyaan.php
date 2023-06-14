@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Kategori extends Model
+class Report_Pertanyaan extends Model
 {
     use HasFactory;
 
@@ -13,8 +13,15 @@ class Kategori extends Model
         'id'
     ];
 
+    protected $table = 'Report_Pertanyaans';
+
+    public function pengguna()
+    {
+        return $this->belongsTo(Pengguna::class);
+    }
+
     public function pertanyaan()
     {
-        return $this->hasMany(Pertanyaan::class);
+        return $this->belongsTo(Pertanyaan::class);
     }
 }

@@ -5,13 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Komentar extends Model
+class Like_Jawaban extends Model
 {
     use HasFactory;
 
     protected $guarded = [
         'id'
     ];
+
+    protected $table = 'Like_Jawabans';
 
     public function pengguna()
     {
@@ -21,10 +23,5 @@ class Komentar extends Model
     public function jawaban()
     {
         return $this->belongsTo(Jawaban::class);
-    }
-
-    public function report_komentar()
-    {
-        return $this->hasMany(Report_Komentar::class);
     }
 }
