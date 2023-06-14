@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Komentar extends Model
+class Report_Komentar extends Model
 {
     use HasFactory;
 
@@ -13,18 +13,15 @@ class Komentar extends Model
         'id'
     ];
 
+    protected $table = 'Report_Komentars';
+
     public function pengguna()
     {
         return $this->belongsTo(Pengguna::class);
     }
 
-    public function jawaban()
+    public function komentar()
     {
-        return $this->belongsTo(Jawaban::class);
-    }
-
-    public function report_komentar()
-    {
-        return $this->hasMany(Report_Komentar::class);
+        return $this->belongsTo(Komentar::class);
     }
 }

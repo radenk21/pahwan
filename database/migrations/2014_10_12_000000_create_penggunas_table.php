@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->string('gambar');
             $table->string('email')->unique();
             $table->string('password');
+            $table->integer('point');
             $table->string('role');
             $table->integer('is_ban');
             $table->timestamps();

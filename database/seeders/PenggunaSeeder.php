@@ -25,6 +25,7 @@ class PenggunaSeeder extends Seeder
                 'gambar'       => $i . ".png",
                 'email'        => $faker->email,
                 'password'     => bcrypt("12345678"),
+                'point'        => rand(0, 200),
                 'role'         => $faker->randomElement($array = array('admin', 'user')),
                 'is_ban'       => 0,
                 'created_at'   => now(),

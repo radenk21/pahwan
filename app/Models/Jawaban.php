@@ -12,4 +12,37 @@ class Jawaban extends Model
     protected $guarded = [
         'id'
     ];
+
+    public function arsip()
+    {
+        return $this->hasMany(Arsip::class);
+    }
+
+    public function gambar_jawaban()
+    {
+        return $this->hasMany(Gambar_Jawaban::class);
+    }
+
+    public function pengguna()
+    {
+        return $this->belongsTo(Pengguna::class);
+    }
+    public function pertanyaan()
+    {
+        return $this->belongsTo(Pertanyaan::class);
+    }
+
+    public function komentar()
+    {
+        return $this->hasMany(Komentar::class);
+    }
+
+    public function like()
+    {
+        return $this->hasMany(Like_Jawaban::class);
+    }
+    public function report_jawaban()
+    {
+        return $this->hasMany(Report_Jawaban::class);
+    }
 }
