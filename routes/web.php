@@ -26,3 +26,4 @@ Route::get('/pages/profile', function () {
 Route::get('/index', function () {
     return view('index');
 });
+
