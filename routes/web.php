@@ -16,19 +16,28 @@ use App\Http\Controllers\AdminPertanyaanController;
 |
 */
 
-Route::get('/', function () {
+// ADMIN ROUTES
+Route::get('/admin', function () {
     return view('admin.index');
 });
 
-Route::resource('/pages/kategori', AdminKategoriController::class);
-
-Route::get('/pages/posts', function () {
-    return view('admin.posts');
+Route::resource('/admin/kategori', AdminKategoriController::class);
+Route::get('/admin/pertanyaan-list', function () {
+    return view('admin.pertanyaan-list');
 });
-Route::get('/pages/profile', function () {
-    return view('admin.profile');
+Route::get('/admin/report-list', function () {
+    return view('admin.report-list');
+});
+Route::get('/admin/user-list', function () {
+    return view('admin.user-list');
 });
 
+Route::get('/pertanyaan/{idKategori}', [AdminPertanyaanController::class, 'index']);
+Route::resource('/pertanyaan', AdminPertanyaanController::class)->except('index');
+Route::get('/jawaban/{idKategori}', [AdminJawabanController::class, 'index']);
+Route::resource('/jawaban', AdminJawabanController::class)->except('index');
+
+// MAIN ROUTES
 Route::get('/index', function () {
     return view('index');
 });
@@ -40,18 +49,3 @@ Route::get('/login', function () {
 Route::get('/regist', function () {
     return view('auth.register');
 });
-
-Route::get('/pages/report-lists', function () {
-    return view('admin.report-lists');
-});
-Route::get('/pages/user-lists', function () {
-    return view('admin.user-lists');
-});
-Route::get('/index', function () {
-    return view('index');
-});
-
-Route::get('/pertanyaan/{idKategori}', [AdminPertanyaanController::class, 'index']);
-Route::resource('/pertanyaan', AdminPertanyaanController::class)->except('index');
-Route::get('/jawaban/{idKategori}', [AdminJawabanController::class, 'index']);
-Route::resource('/jawaban', AdminJawabanController::class)->except('index');
