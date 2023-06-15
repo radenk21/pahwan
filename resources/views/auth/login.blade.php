@@ -18,7 +18,8 @@
     {{-- Login Form Section Start --}}
     <div class="login-container">
         <div class="max-w-md w-full">
-            <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" action="#">
+                @csrf
                 <div class="mb-4">
                     <img src="{{asset('img/Pahwan logo 1.png')}}" alt="Pahwan Logo" class="mx-auto" id="pahwan-logo-login" draggable="false">
                     <p class="text-blue-500 mx-auto "></p>
@@ -36,7 +37,7 @@
                     <p class="text-red-500 text-xs italic">Please put a password.</p>
                 </div>
                 <div class="flex items-center justify-between pb-3">
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                         Sign In
                     </button>
                     <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
