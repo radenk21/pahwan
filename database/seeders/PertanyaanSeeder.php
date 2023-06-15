@@ -21,9 +21,8 @@ class PertanyaanSeeder extends Seeder
         $kategoriIds = Kategori::pluck('id')->toArray();
         $penggunaIds = Pengguna::pluck('id')->toArray();
 
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 30; $i++) {
             $pertanyaans[] = [
-                'judul'       => $faker->sentence(rand(5, 10)),
                 'pertanyaan'  => $faker->sentence(rand(25, 30)),
                 'kategori_id' => collect($kategoriIds)->random(),
                 'pengguna_id' => collect($penggunaIds)->random(),
