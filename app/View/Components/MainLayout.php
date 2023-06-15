@@ -25,11 +25,10 @@ class MainLayout extends Component
     {
         $navbar = [
             "Dashboard"   => "/",
-            "Posts"       => "/posts",
+            "Pertanyaan List" => "/pertanyaan-list",
             "Kategori"    => "/kategori",
-            "User List"   => "/user-lists",
-            "Report List" => "/report-lists",
-            "Profile" => "/profile",
+            "User List"   => "/user-list",
+            "Report List" => "/report-list",
         ];
         return view('admin.layouts.main', compact('navbar'));
     }

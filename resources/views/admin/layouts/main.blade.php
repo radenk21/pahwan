@@ -60,25 +60,17 @@
               @else
               font-semibold
               @endif
-            " href="
-            @if($name != 'Dashboard') /pages{{ $url }} @else {{ $url }} @endif ">
+            " href="/admin{{ $url }}">
             <div class=" mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center
             xl:p-2.5">
               <i class="relative top-0 leading-normal
-                @if($name == 'Dashboard') text-blue-500 ni ni-tv-2 @elseif($name=='Posts' ) text-orange-500 ni
-                ni-collection @elseif($name=='Kategori' ) ni ni-tag @elseif($name=='User List' ) text-emerald-500 ni
+                @if($name == 'Dashboard') text-blue-500 ni ni-tv-2 @elseif($name=='Pertanyaan List' ) text-orange-500 ni ni-collection @elseif($name=='Kategori' ) ni ni-tag @elseif($name=='User List' ) text-emerald-500 ni
                 ni-bullet-list-67 @elseif($name=='Report List' ) text-red-700 ni ni-notification-70
-                @elseif($name=='Profile' ) text-slate-700 ni ni-single-02 @endif "></i>
+                @endif "></i>
             </div>
             <span class=" ml-1 duration-300 opacity-100 pointer-events-none ease">{{ $name }}</span>
           </a>
         </li>
-        @if($name == "Report List")
-        <li class="w-full mt-4">
-          <h6 class="pl-6 ml-2 text-xs font-bold leading-tight uppercase dark:text-gray-800 opacity-60">Account pages
-          </h6>
-        </li>
-        @endif
         @endforeach
       </ul>
     </div>
@@ -95,13 +87,13 @@
           <!-- breadcrumb -->
           <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
             <li class="text-sm leading-normal">
-              <a class="text-white opacity-50" href="javascript:;">Pages</a>
+              <a class="text-white opacity-50" href="javascript:;">Admin</a>
             </li>
             <li
               class="text-sm pl-2 capitalize leading-normal text-white before:float-left before:pr-2 before:text-white before:content-['/']"
               aria-current="page">Page</li>
           </ol>
-          <h6 class="mb-0 font-bold text-white capitalize">Dashboard</h6>
+          <h6 class="mb-0 font-bold text-white capitalize">{{ $title }}</h6>
         </nav>
 
         <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
