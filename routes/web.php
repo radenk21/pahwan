@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminJawabanController;
+use App\Http\Controllers\AdminKategoriController;
+use App\Http\Controllers\AdminPertanyaanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,17 +16,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+// ADMIN ROUTES
+Route::get('/admin', function () {
     return view('admin.index');
 });
-Route::get('/pages/tables', function () {
-    return view('admin.pages.tables');
+
+Route::resource('/admin/kategori', AdminKategoriController::class);
+Route::get('/admin/pertanyaan-list', function () {
+    return view('admin.pertanyaan-list');
 });
-Route::get('/pages/profile', function () {
-    return view('admin.pages.profile');
+Route::get('/admin/report-list', function () {
+    return view('admin.report-list');
+});
+Route::get('/admin/user-list', function () {
+    return view('admin.user-list');
 });
 
+Route::get('/pertanyaan/{idKategori}', [AdminPertanyaanController::class, 'index']);
+Route::resource('/pertanyaan', AdminPertanyaanController::class)->except('index');
+Route::get('/jawaban/{idKategori}', [AdminJawabanController::class, 'index']);
+Route::resource('/jawaban', AdminJawabanController::class)->except('index');
+
+// MAIN ROUTES
 Route::get('/index', function () {
     return view('index');
 });
 
+Route::get('/login', function () {
+    return view('auth.login');
+});
+
+Route::get('/regist', function () {
+    return view('auth.register');
+});

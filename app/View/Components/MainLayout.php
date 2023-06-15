@@ -15,7 +15,7 @@ class MainLayout extends Component
     public $title;
     public function __construct($title = NULL)
     {
-        $this->title =$title ?? "Dashboard";
+        $this->title = $title ?? "Dashboard";
     }
 
     /**
@@ -24,13 +24,12 @@ class MainLayout extends Component
     public function render(): View|Closure|string
     {
         $navbar = [
-            "Dashboard" => "/",
-            "Posts" => "/posts",
-            "Kategori" => "/kategori",
-            "User List" => "/user-lists",
-            "Report List" => "/report-lists",
-
+            "Dashboard"   => "/",
+            "Pertanyaan List" => "/pertanyaan-list",
+            "Kategori"    => "/kategori",
+            "User List"   => "/user-list",
+            "Report List" => "/report-list",
         ];
-        return view('admin.layouts.main',compact('navbar'));
+        return view('admin.layouts.main', compact('navbar'));
     }
 }
