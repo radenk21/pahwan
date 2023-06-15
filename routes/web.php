@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminJawabanController;
+use App\Http\Controllers\AdminKategoriController;
+use App\Http\Controllers\AdminPertanyaanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.index');
 });
-Route::get('/pages/kategori', function () {
-    return view('admin.kategori');
-});
+
+Route::resource('/pages/kategori', AdminKategoriController::class);
+
 Route::get('/pages/posts', function () {
     return view('admin.posts');
 });
@@ -34,3 +37,8 @@ Route::get('/pages/user-lists', function () {
 Route::get('/index', function () {
     return view('index');
 });
+
+Route::get('/pertanyaan/{idKategori}', [AdminPertanyaanController::class, 'index']);
+Route::resource('/pertanyaan', AdminPertanyaanController::class)->except('index');
+Route::get('/jawaban/{idKategori}', [AdminJawabanController::class, 'index']);
+Route::resource('/jawaban', AdminJawabanController::class)->except('index');
