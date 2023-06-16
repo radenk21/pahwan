@@ -1,4 +1,4 @@
-<x-main-layout title="Post">
+<x-main-layout title="Pertanyaan List">
     @section('content')
 
     @endsection

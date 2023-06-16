@@ -32,10 +32,10 @@ Route::get('/admin/user-list', function () {
     return view('admin.user-list');
 });
 
-Route::get('/pertanyaan/{idKategori}', [AdminPertanyaanController::class, 'index']);
-Route::resource('/pertanyaan', AdminPertanyaanController::class)->except('index');
-Route::get('/jawaban/{idKategori}', [AdminJawabanController::class, 'index']);
-Route::resource('/jawaban', AdminJawabanController::class)->except('index');
+Route::get('/admin/pertanyaan/{idKategori}', [AdminPertanyaanController::class, 'index']);
+Route::resource('/admin/pertanyaan', AdminPertanyaanController::class)->except('index');
+Route::get('/admin/jawaban/{idKategori}', [AdminJawabanController::class, 'index']);
+Route::resource('/admin/jawaban', AdminJawabanController::class)->except('index');
 
 // MAIN ROUTES
 Route::get('/index', function () {
