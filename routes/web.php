@@ -49,3 +49,7 @@ Route::get('/login', function () {
 Route::get('/regist', function () {
     return view('auth.register');
 });
+
+Route::get('/choose-categories', function() {
+    return view('auth.categories');
+});
