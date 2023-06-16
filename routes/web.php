@@ -49,3 +49,11 @@ Route::get('/login', function () {
 Route::get('/regist', function () {
     return view('auth.register');
 });
+
+Route::get('/following', function () {
+    return view('following');
+});
+
+Route::get('/question', function () {
+    return view('question');
+})->name('question');
