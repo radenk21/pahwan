@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Jawaban;
+use App\Models\Kategori;
+use App\Models\Pertanyaan;
 use Illuminate\Http\Request;
 
 class AdminJawabanController extends Controller
@@ -10,10 +12,19 @@ class AdminJawabanController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view("admin.jawaban", [
+        $kategori = Kategori::where('id', $request->idKategori)->first();
 
+        $pertanyaanIds = Pertanyaan::where('kategori_id', $request->idKategori)->pluck('id');
+
+        // dd($pertanyaanIds);
+
+        $jawabans = Jawaban::with('pertanyaan', 'report_jawaban')->whereIn('pertanyaan_id', $pertanyaanIds)->where('jawaban', 'like', '%' . $request->query('pencarian') . '%')->latest()->simplePaginate(5)->withQueryString();
+
+        return view("admin.jawaban", [
+            'kategori' => $kategori,
+            'jawabans' => $jawabans,
         ]);
     }
 
@@ -62,6 +73,8 @@ class AdminJawabanController extends Controller
      */
     public function destroy(Jawaban $jawaban)
     {
-        //
+        Jawaban::destroy($jawaban->id);
+
+        return redirect()->back();
     }
 }
