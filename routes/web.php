@@ -50,6 +50,14 @@ Route::get('/regist', function () {
     return view('auth.register');
 });
 
+Route::get('/following', function () {
+    return view('following');
+});
+
+Route::get('/question', function () {
+    return view('question');
+})->name('question');
+
 Route::get('/choose-categories', function() {
     return view('auth.categories');
 });
