@@ -58,126 +58,126 @@
                 $i = 1
                 @endphp
                 @foreach ($pertanyaans as $pertanyaan)
-                <tr>
-                  <td
-                    class="p-2 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                    <span class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">{{
-                      $i + (($pertanyaans->currentPage()-1) * 5) }}</span>
-                  </td>
-                  <td
-                    class="p-2 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                    <span class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">{{
-                      date('d / m / Y',strtotime($pertanyaan->created_at)) }}
-                  </td>
-                  <td
-                    class="p-2 text-center bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                    <div class="flex px-2 py-1">
-                      <div class="flex flex-col justify-center w-full">
-                        <h6 class="mb-0 text-sm leading-normal dark:text-white">{{ $pertanyaan->pengguna->nama }}</h6>
-                        <p class="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">
-                          {{ $pertanyaan->pengguna->email }}</p>
+                  <tr>
+                    <td
+                      class="p-2 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                      <span class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">{{
+                        $i + (($pertanyaans->currentPage()-1) * 5) }}</span>
+                    </td>
+                    <td
+                      class="p-2 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                      <span class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">{{
+                        date('d / m / Y',strtotime($pertanyaan->created_at)) }}
+                    </td>
+                    <td
+                      class="p-2 text-center bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                      <div class="flex px-2 py-1">
+                        <div class="flex flex-col justify-center w-full">
+                          <h6 class="mb-0 text-sm leading-normal dark:text-white">{{ $pertanyaan->pengguna->nama }}</h6>
+                          <p class="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">
+                            {{ $pertanyaan->pengguna->email }}</p>
+                        </div>
                       </div>
-                    </div>
-                  </td>
-                  <td class="p-2 align-middle bg-transparent border-b dark:border-white/40 w-1/4 shadow-transparent">
-                    <p class="mb-0 text-xs text-wrap  font-semibold leading-tight dark:text-white dark:opacity-80">{{
-                      $pertanyaan->pertanyaan }}</p>
-                    </p>
-                  </td>
-                  <td
-                    class="p-2 w-1/10 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                    <span class="text-lg font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">{{
-                      $pertanyaan->jawaban->count() }}</span>
-                  </td>
-                  <td
-                    class="p-2 w-1/10 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                    <span class="text-lg font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">{{
-                      $pertanyaan->report_pertanyaan->count() }}</span>
-                  </td>
-                  <td
-                    class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                    <!-- Modals Component Start -->
-                    <div class="inline items-center justify-center py-2">
-                      <button data-target="detail-modals-component{{ $i }}"
-                        class="text-md px-2 py-1 bg-slate-300 rounded text-black font-semibold leading-tight dark:opacity-80 modal-trigger">
-                        Detail
+                    </td>
+                    <td class="p-2 align-middle bg-transparent border-b dark:border-white/40 w-1/4 shadow-transparent">
+                      <p class="mb-0 text-xs text-wrap  font-semibold leading-tight dark:text-white dark:opacity-80">{{
+                        $pertanyaan->pertanyaan }}</p>
+                      </p>
+                    </td>
+                    <td
+                      class="p-2 w-1/10 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                      <span class="text-lg font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">{{
+                        $pertanyaan->jawaban->count() }}</span>
+                    </td>
+                    <td
+                      class="p-2 w-1/10 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                      <span class="text-lg font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">{{
+                        $pertanyaan->report_pertanyaan->count() }}</span>
+                    </td>
+                    <td
+                      class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                      <!-- Modals Component Start -->
+                      <div class="inline items-center justify-center py-2">
+                        <button data-target="detail-modals-component{{ $i }}"
+                          class="text-md px-2 py-1 bg-slate-300 rounded text-black font-semibold leading-tight dark:opacity-80 modal-trigger">
+                          Detail
+                        </button>
+                      </div>
+                      <!-- Modals Component Start -->
+                      <div class="inline-block items-center justify-center py-2">
+                        <button data-target="hapus-modals-component{{ $i }}"
+                          class="text-md px-2  py-1 bg-red-500 rounded ms-3 font-semibold leading-tight dark:text-white dark:opacity-80 modal-trigger">
+                          Hapus
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  {{-- modal detail --}}
+                  <div id="detail-modals-component{{ $i }}"
+                    class="fixed inset-0 flex items-center justify-center z-50 hidden ">
+                    <div id="overlay" class="fixed inset-0 bg-gray-500 opacity-0 transition-opacity"></div>
+                    <div id="modalContent"
+                      class="bg-white dark:bg-gray-800 w-full overflow-y-scroll max-h-[90%] max-w-4xl p-6 rounded-lg shadow-lg transform scale-0 transition-transform text-center">
+                      <h2 class="text-2xl font-bold mb-4 text-center dark:text-white">
+                        Detail Pertanyaan
+                      </h2>
+                      <p class="mb-4 text-lg text-center text-white">Pertanyaan {{ $pertanyaan->pengguna->nama }}
+                      </p>
+                      <p class="mb-4 text-center text-slate-300">"{{ $pertanyaan->pertanyaan
+                        }}"
+                      </p>
+                      @foreach ($pertanyaan->jawaban as $jawaban)
+                      <p class="mb-4 text-lg text-center text-white">Jawaban {{ $jawaban->pengguna->nama }}
+                      </p>
+                      <p class="mb-4 text-center text-slate-300">"{{ $jawaban->jawaban
+                        }}"
+                        @endforeach
+                      <p class="mb-4 text-lg text-center text-white">Report Pertanyaan
+                        @foreach ($pertanyaan->report_pertanyaan as $report)
+                      </p>
+                      <p class="mb-4 text-center text-slate-300"> {{
+                        date('d / m / Y',strtotime($report->created_at)) }} {{ $report->pengguna->nama
+                        }}
+                        @endforeach
+                      </p>
+                      <button id="closeModalButton" data-target="detail-modals-component{{ $i }}"
+                        class="px-4 py-2 bg-blue-500 text-white rounded modal-close mt-3">
+                        Close
                       </button>
                     </div>
-                    <!-- Modals Component Start -->
-                    <div class="inline-block items-center justify-center py-2">
-                      <button data-target="hapus-modals-component{{ $i }}"
-                        class="text-md px-2  py-1 bg-red-500 rounded ms-3 font-semibold leading-tight dark:text-white dark:opacity-80 modal-trigger">
-                        Hapus
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                {{-- modal detail --}}
-                <div id="detail-modals-component{{ $i }}"
-                  class="fixed inset-0 flex items-center justify-center z-50 hidden ">
-                  <div id="overlay" class="fixed inset-0 bg-gray-500 opacity-0 transition-opacity"></div>
-                  <div id="modalContent"
-                    class="bg-white dark:bg-gray-800 w-full overflow-y-scroll max-h-[90%] max-w-4xl p-6 rounded-lg shadow-lg transform scale-0 transition-transform text-center">
-                    <h2 class="text-2xl font-bold mb-4 text-center dark:text-white">
-                      Detail Pertanyaan
-                    </h2>
-                    <p class="mb-4 text-lg text-center text-white">Pertanyaan {{ $pertanyaan->pengguna->nama }}
-                    </p>
-                    <p class="mb-4 text-center text-slate-300">"{{ $pertanyaan->pertanyaan
-                      }}"
-                    </p>
-                    @foreach ($pertanyaan->jawaban as $jawaban)
-                    <p class="mb-4 text-lg text-center text-white">Jawaban {{ $jawaban->pengguna->nama }}
-                    </p>
-                    <p class="mb-4 text-center text-slate-300">"{{ $jawaban->jawaban
-                      }}"
-                      @endforeach
-                    <p class="mb-4 text-lg text-center text-white">Report Pertanyaan
-                      @foreach ($pertanyaan->report_pertanyaan as $report)
-                    </p>
-                    <p class="mb-4 text-center text-slate-300"> {{
-                      date('d / m / Y',strtotime($report->created_at)) }} {{ $report->pengguna->nama
-                      }}
-                      @endforeach
-                    </p>
-                    <button id="closeModalButton" data-target="detail-modals-component{{ $i }}"
-                      class="px-4 py-2 bg-blue-500 text-white rounded modal-close mt-3">
-                      Close
-                    </button>
                   </div>
-                </div>
-                {{-- end-modal detail --}}
-                {{-- modal hapus --}}
-                <div id="hapus-modals-component{{ $i }}"
-                  class="fixed inset-0 flex items-center justify-center z-50 hidden">
-                  <div id="overlay" class="fixed inset-0 bg-gray-500 opacity-0 transition-opacity"></div>
-                  <div id="modalContent"
-                    class="bg-white dark:bg-gray-800 w-1/2 max-w-lg p-6 rounded-lg shadow-lg transform scale-0 transition-transform text-center">
-                    <h2 class="text-2xl font-bold mb-4 text-center dark:text-white">
-                      Hapus Pertanyaan
-                    </h2>
-                    <p class="mb-4 text-center text-white">Yakin Ingin Menghapus Pertanyaan "{{
-                      $pertanyaan->pertanyaan
-                      }}
-                      ??"
-                    </p>
-                    <button id="closeModalButton" data-target="hapus-modals-component{{ $i }}"
-                      class="px-4 py-2 bg-blue-500 text-white rounded modal-close mt-3">
-                      Close
-                    </button>
-                    <form action="/pertanyaan/{{ $pertanyaan->id }}" method="POST" class="inline-block ms-10 mt-3">
-                      @csrf
-                      @method('delete')
-                      <button type="submit" class="bg-red-500 rounded-md py-2 px-3 text-white">
-                        Hapus
+                  {{-- end-modal detail --}}
+                  {{-- modal hapus --}}
+                  <div id="hapus-modals-component{{ $i }}"
+                    class="fixed inset-0 flex items-center justify-center z-50 hidden">
+                    <div id="overlay" class="fixed inset-0 bg-gray-500 opacity-0 transition-opacity"></div>
+                    <div id="modalContent"
+                      class="bg-white dark:bg-gray-800 w-1/2 max-w-lg p-6 rounded-lg shadow-lg transform scale-0 transition-transform text-center">
+                      <h2 class="text-2xl font-bold mb-4 text-center dark:text-white">
+                        Hapus Pertanyaan
+                      </h2>
+                      <p class="mb-4 text-center text-white">Yakin Ingin Menghapus Pertanyaan "{{
+                        $pertanyaan->pertanyaan
+                        }}
+                        ??"
+                      </p>
+                      <button id="closeModalButton" data-target="hapus-modals-component{{ $i }}"
+                        class="px-4 py-2 bg-blue-500 text-white rounded modal-close mt-3">
+                        Close
                       </button>
-                    </form>
+                      <form action="/pertanyaan/{{ $pertanyaan->id }}" method="POST" class="inline-block ms-10 mt-3">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="bg-red-500 rounded-md py-2 px-3 text-white">
+                          Hapus
+                        </button>
+                      </form>
+                    </div>
                   </div>
-                </div>
-                {{-- end-modal hapus --}}
-                @php
-                $i++
-                @endphp
+                  {{-- end-modal hapus --}}
+                  @php
+                  $i++
+                  @endphp
                 @endforeach
               </tbody>
             </table>

@@ -13,8 +13,8 @@ class AdminPertanyaanController extends Controller
      */
     public function index(Request $request)
     {
+        
         $kategori = Kategori::where('id', $request->idKategori)->first();
-
         $pertanyaans = Pertanyaan::with('jawaban', 'report_pertanyaan')->where('kategori_id', $request->idKategori)->where('pertanyaan', 'like', '%' . $request->query('pencarian') . '%')->latest()->simplePaginate(5)->withQueryString();
 
         return view('admin.pertanyaan', [
