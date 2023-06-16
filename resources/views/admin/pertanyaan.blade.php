@@ -121,7 +121,7 @@
                     <h2 class="text-2xl font-bold mb-4 text-center dark:text-white">
                       Detail Pertanyaan
                     </h2>
-                    <p class="mb-4 text-lg text-center text-white">Pertanyaan
+                    <p class="mb-4 text-lg text-center text-white">Pertanyaan {{ $pertanyaan->pengguna->nama }}
                     </p>
                     <p class="mb-4 text-center text-slate-300">"{{ $pertanyaan->pertanyaan
                       }}"
@@ -132,8 +132,8 @@
                     <p class="mb-4 text-center text-slate-300">"{{ $jawaban->jawaban
                       }}"
                       @endforeach
+                    <p class="mb-4 text-lg text-center text-white">Report Pertanyaan
                       @foreach ($pertanyaan->report_pertanyaan as $report)
-                    <p class="mb-4 text-lg text-center text-white">Report
                     </p>
                     <p class="mb-4 text-center text-slate-300"> {{
                       date('d / m / Y',strtotime($report->created_at)) }} {{ $report->pengguna->nama

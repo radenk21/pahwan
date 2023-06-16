@@ -21,7 +21,7 @@ class JawabanSeeder extends Seeder
         $penggunaIds = Pengguna::pluck('id')->toArray();
         $pertanyaanIds = Pertanyaan::pluck('id')->toArray();
 
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 30; $i++) {
             $jawabans[] = [
                 'pengguna_id'   => collect($penggunaIds)->random(),
                 'pertanyaan_id' => collect($pertanyaanIds)->random(),
