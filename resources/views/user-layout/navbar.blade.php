@@ -9,7 +9,7 @@
           <a href="" class="block py-2.5 px-4 rounded transition duration-200 hover:text-customBlue">
             Following
           </a>
-          <a href="" class="block py-2.5 px-4 rounded transition duration-200 hover:text-customBlue">
+          <a href="{{ route('question')}}" class="block py-2.5 px-4 rounded transition duration-200 hover:text-customBlue">
             Questions
           </a>
           <div class="input-wrapper sm:hidden md:block lg:block">
@@ -64,7 +64,7 @@
         </div>
 
         <div class="h-14 flex justify-start items-center">
-          <a href="" class="text-white text-xl flex items-center gap-2">
+          <a href="{{ route('question')}}" class="text-white text-xl flex items-center gap-2">
             <i class="fas fa-question-circle w-[25px] h-[25px]"></i>
             <p>Question</p>
           </a>
