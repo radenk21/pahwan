@@ -73,7 +73,7 @@
         </div>
   
         <div class="h-14 flex justify-start items-center">
-          <a href="" class="text-white text-xl flex items-center gap-2">
+          <a href="{{route('leaderboard')}}" class="text-white text-xl flex items-center gap-2">
             <i class="fa-solid fa-ranking-star w-[25px] h-[25px]"></i>
             <p>Leaderboard</p>
           </a>
