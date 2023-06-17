@@ -66,3 +66,8 @@ Route::get('/tes', function () {
 Route::get('/categories', function () {
     return view('all-categories');
 })->name('categories');
+
+// Leaderboard
+Route::get('/leaderboard', function () {
+    return view('leaderboard');
+})->name('leaderboard');

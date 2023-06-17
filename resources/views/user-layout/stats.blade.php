@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="mt-2 text-customBlue items-center gap-1 justify-end flex">
-            <a href="">Leaderboard
+            <a href="{{route('leaderboard')}}">Leaderboard
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
         </div>
