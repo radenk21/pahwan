@@ -10,11 +10,16 @@
             @foreach ($categories as $kategori)
             <div class="flex mt-4 gap-1">
                 <a href="">
-                    <p class="text-customBlue">{{$kategori}}</p>
+                    <p class="hover:text-customBlue hover:underline">{{$kategori}}</p>
                 </a>
             </div>
             </a>
             @endforeach
+            <div class="mt-2 flex justify-end">
+                <a href="{{route('categories')}}">
+                    <p class="text-customBlue">See More...</p>
+                </a>
+            </div>
         {{-- @endfor --}}
     </div>
 </div>

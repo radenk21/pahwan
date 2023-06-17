@@ -39,7 +39,7 @@ Route::get('/admin/report-list', function () {
 // MAIN ROUTES
 Route::get('/index', function () {
     return view('index');
-});
+})->name('index');
 
 Route::get('/login', function () {
     return view('auth.login');
@@ -61,3 +61,8 @@ Route::get('/question', function () {
 Route::get('/tes', function () {
     return view('admin.tes');
 });
+
+// All Categories
+Route::get('/categories', function () {
+    return view('all-categories');
+})->name('categories');

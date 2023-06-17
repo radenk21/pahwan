@@ -1,7 +1,9 @@
   <div class="sticky top-0 z-50 bg-white">
     <div class="relative flex flex-col items-center shadow-md">
       <div class="h-16 border-b  flex w-full lg:w-4/5 items-center px-4 md:px-8 justify-between">
-        <h1 class="text-xl font-bold text-customBlue">PAHWAN</h1>
+        <a href="{{route('index')}}">
+          <h1 class="text-xl font-bold text-customBlue">PAHWAN</h1>
+        </a>
         <nav class="hidden md:flex items-center mx-auto">
           <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:text-customBlue">
             For you
