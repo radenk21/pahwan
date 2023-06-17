@@ -1,7 +1,9 @@
   <div class="sticky top-0 z-50 bg-white">
     <div class="relative flex flex-col items-center shadow-md">
       <div class="h-16 border-b  flex w-full lg:w-4/5 items-center px-4 md:px-8 justify-between">
-        <h1 class="text-xl font-bold text-customBlue">PAHWAN</h1>
+        <a href="{{route('index')}}">
+          <h1 class="text-xl font-bold text-customBlue">PAHWAN</h1>
+        </a>
         <nav class="hidden md:flex items-center mx-auto">
           <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:text-customBlue">
             For you
@@ -18,7 +20,7 @@
             focus:outline-lightcoral hidden md:block" autocomplete="off">
           </div>        
         </nav>
-        <a href="" class="py-2.5 px-4 rounded hidden md:block">
+        <a href="{{route('profile')}}" class="py-2.5 px-4 rounded hidden md:block">
           <img class="block w-10 h-10 rounded-full sm:hidden md:block lg:block"
             src="https://i.pinimg.com/564x/4b/22/ea/4b22eaa178362386c3a341fb5d5e5e3e.jpg" alt="">
         </a>
@@ -36,7 +38,7 @@
       shadow-lg border-l rounded-l-2xl transform translate-x-full md:hidden transition duration-200 ease-in-out">
       <div class="flex justify-between">
         <button class="text-2xl text-white" onclick="closeSidebar()">&times;</button>
-        <a href="">
+        <a href="{{route('profile')}}">
           <img src="https://i.pinimg.com/736x/1a/6d/36/1a6d3657bca0faf010d72d8548e5f839.jpg" 
           class="object-cover rounded-full mt-2 w-[40px] h-[40px]" alt="">
         </a>
@@ -71,7 +73,7 @@
         </div>
   
         <div class="h-14 flex justify-start items-center">
-          <a href="" class="text-white text-xl flex items-center gap-2">
+          <a href="{{route('leaderboard')}}" class="text-white text-xl flex items-center gap-2">
             <i class="fa-solid fa-ranking-star w-[25px] h-[25px]"></i>
             <p>Leaderboard</p>
           </a>

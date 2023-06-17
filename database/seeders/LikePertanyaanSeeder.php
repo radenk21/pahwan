@@ -2,14 +2,15 @@
 
 namespace Database\Seeders;
 
-use App\Models\Jawaban;
 use App\Models\Pengguna;
+use App\Models\Pertanyaan;
+use Faker\Factory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Faker\Factory;
-use DB;
+use Illuminate\Support\Facades\DB;
 
-class LikeJawabanSeeder extends Seeder
+
+class LikePertanyaanSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,16 +20,16 @@ class LikeJawabanSeeder extends Seeder
         $likes = [];
         $faker = Factory::create();
         $penggunaIds = Pengguna::pluck('id')->toArray();
-        $jawabanIds = Jawaban::pluck('id')->toArray();
+        $pertanyaanIds = Pertanyaan::pluck('id')->toArray();
 
         for ($i = 1; $i <= 30; $i++) {
             $likes[] = [
                 'pengguna_id' => collect($penggunaIds)->random(),
-                'jawaban_id'  => collect($jawabanIds)->random(),
+                'pertanyaan_id'  => collect($pertanyaanIds)->random(),
                 'created_at'  => now(),
                 'updated_at'  => now(),
             ];
         }
-        DB::table("like_jawabans")->insert($likes);
+        DB::table("like_pertanyaans")->insert($likes);
     }
 }

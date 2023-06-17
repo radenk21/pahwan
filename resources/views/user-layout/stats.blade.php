@@ -6,7 +6,7 @@
         <i class="fa-regular fa-user fa-2xl rounded-full border-2 border-tl-none border-solid border-[#000000] p-8"></i>
         </div>
         <div class="flex justify-center">
-        <button class="bg-[#0047ab] text-white font-bold py-2 px-4 rounded-[50px]">Go to profile</button>
+        <a href="{{route('profile')}}" class="bg-[#0047ab] text-white font-bold py-2 px-4 rounded-[50px]">Go to profile</a>
         </div>
     </div>
 
@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="mt-2 text-customBlue items-center gap-1 justify-end flex">
-            <a href="">Leaderboard
+            <a href="{{route('leaderboard')}}">Leaderboard
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
         </div>

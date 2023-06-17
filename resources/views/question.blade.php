@@ -26,7 +26,7 @@
     @include('user-layout.navbar')
     {{-- navbar end --}}
 
-    <div class="flex justify-center pt-1 md:pt-4 bg-gray-100">
+    <div class="flex justify-center pt-1 md:pt-4 bg-gray-100 min-h-[89vh] max-h-fit">
         <div class="flex flex-wrap w-7/8 md:w-4/5">
 
             {{-- KATEGORI START --}}
