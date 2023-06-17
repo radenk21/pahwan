@@ -26,11 +26,13 @@ class DatabaseSeeder extends Seeder
         $this->call(ReportPertanyaanSeeder::class);
         $this->call(JawabanSeeder::class);
         $this->call(ArsipSeeder::class);
-        $this->call(LikeJawabanSeeder::class);
         $this->call(GambarJawabanSeeder::class);
         $this->call(ReportJawabanSeeder::class);
         $this->call(KomentarSeeder::class);
         $this->call(ReportKomentarSeeder::class);
         $this->call(PenggunaFollowSeeder::class);
+        $this->call(LikeJawabanSeeder::class);
+        $this->call(LikeKomentarSeeder::class);
+        $this->call(LikePertanyaanSeeder::class);
     }
 }
