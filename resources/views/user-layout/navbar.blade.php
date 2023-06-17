@@ -20,7 +20,7 @@
             focus:outline-lightcoral hidden md:block" autocomplete="off">
           </div>        
         </nav>
-        <a href="" class="py-2.5 px-4 rounded hidden md:block">
+        <a href="{{route('profile')}}" class="py-2.5 px-4 rounded hidden md:block">
           <img class="block w-10 h-10 rounded-full sm:hidden md:block lg:block"
             src="https://i.pinimg.com/564x/4b/22/ea/4b22eaa178362386c3a341fb5d5e5e3e.jpg" alt="">
         </a>
@@ -38,7 +38,7 @@
       shadow-lg border-l rounded-l-2xl transform translate-x-full md:hidden transition duration-200 ease-in-out">
       <div class="flex justify-between">
         <button class="text-2xl text-white" onclick="closeSidebar()">&times;</button>
-        <a href="">
+        <a href="{{route('profile')}}">
           <img src="https://i.pinimg.com/736x/1a/6d/36/1a6d3657bca0faf010d72d8548e5f839.jpg" 
           class="object-cover rounded-full mt-2 w-[40px] h-[40px]" alt="">
         </a>

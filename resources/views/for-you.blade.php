@@ -62,12 +62,12 @@
       </div>
       
       {{-- show reply --}}
-      <div id="reply" class="mt-2">
+      <div id="reply" class="hidden mt-2">
         <div class="flex items-center w-[100%]">
           <form action="" class="flex gap-2 w-[100%] items-center">
             <img src="https://i.pinimg.com/736x/1a/6d/36/1a6d3657bca0faf010d72d8548e5f839.jpg" 
             class="rounded-full w-[40px] h-[40px] object-cover" alt="">
-            <textarea class="bg-gray-200 px-4 py-2 rounded-2xl resize-none w-[90%] h-10 lg:w-[450px] lg:h-[40px]"  
+            <textarea class="bg-gray-200 px-4 py-2 rounded-2xl resize-none overflow-y-hidden w-[90%] h-10 lg:w-[450px] lg:h-[40px]"  
             id="replyTextarea" type="text" placeholder="Tambahkan komentar..."></textarea>
             <button class="bg-customBlue text-white px-4 rounded-full flex items-center justify-center
             w-[40px] h-[40px]"><i class="fa-solid fa-paper-plane"></i></button>
