@@ -71,3 +71,8 @@ Route::get('/categories', function () {
 Route::get('/leaderboard', function () {
     return view('leaderboard');
 })->name('leaderboard');
+
+// My Profile
+Route::get('/profile', function () {
+    return view('profile');
+})->name('profile');
