@@ -77,5 +77,17 @@ Route::get('/leaderboard', function () {
 
 // My Profile
 Route::get('/profile', function () {
-    return view('profile');
+    return view('user-profile.profile');
 })->name('profile');
+
+Route::get('/profile/question', function () {
+    return view('user-profile.profile-question');
+})->name('profile-question');
+
+Route::get('/profile/followers', function () {
+    return view('user-profile.profile-followers');
+})->name('profile-followers');
+
+Route::get('/profile/following', function () {
+    return view('user-profile.profile-following');
+})->name('profile-following');
