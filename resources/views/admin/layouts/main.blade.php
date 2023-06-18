@@ -14,7 +14,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
 <!DOCTYPE html>
-<html class="light">
+<html class="dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -44,29 +44,32 @@
   <div class="absolute w-full bg-blue-500 dark:hidden min-h-75"></div>
   <!-- sidenav  -->
 
-  <aside id="default-sidebar" class="top-0 left-0 z-40 h-screen sm:translate-x-0 md:translate-x-0 fixed inset-y-0 flex-wrap items-center justify-between block w-full p-0 my-4 overflow-y-auto antialiased transition-transform duration-200 -translate-x-full bg-white border-0 shadow-xl dark:shadow-none dark:bg-slate-850 max-w-64 ease-nav-brand z-990 xl:ml-6 rounded-2xl xl:left-0 xl:translate-x-0" aria-label="Sidebar">
-  <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+  <aside id="default-sidebar"
+    class="top-0 left-0 z-40 h-screen sm:translate-x-0 md:translate-x-0 fixed inset-y-0 flex-wrap items-center justify-between block w-full p-0 my-4 overflow-y-auto antialiased transition-transform duration-200 -translate-x-full bg-white border-0 shadow-xl dark:shadow-none dark:bg-slate-850 max-w-64 ease-nav-brand z-990 xl:ml-6 rounded-2xl xl:left-0 xl:translate-x-0"
+    aria-label="Sidebar">
+    <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
       <ul class="space-y-2 font-medium">
         @foreach ($navbar as $name => $url)
-          <li class="mt-0.5 w-full">
-            <a class="flex items-center p-2 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700
+        <li class="mt-0.5 w-full">
+          <a class="flex items-center p-2 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700
                 @if($title == $name)
                 py-2.7 bg-blue-500/13 rounded-lg font-bold text-slate-700
                 @else
                 font-semibold
                 @endif
               " href="/admin{{ $url }}">
-              <div class=" mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center
+            <div class=" mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center
               xl:p-2.5">
-                <i class="relative top-0 leading-normal
+              <i
+                class="relative top-0 leading-normal
                   @if($name == 'Dashboard') text-blue-500 ni ni-tv-2 @elseif($name=='Pertanyaan List' ) text-orange-500 ni ni-collection @elseif($name=='Kategori' ) ni ni-tag @elseif($name=='User List' ) text-emerald-500 ni ni-bullet-list-67 @elseif($name=='Report List' ) text-red-700 ni ni-notification-70 @endif "></i>
-              </div>
-              <span class=" ml-1 duration-300 opacity-100 pointer-events-none ease">{{ $name }}</span>
-            </a>
-          </li>
+            </div>
+            <span class=" ml-1 duration-300 opacity-100 pointer-events-none ease">{{ $name }}</span>
+          </a>
+        </li>
         @endforeach
       </ul>
-  </div>
+    </div>
   </aside>
   <!-- end sidenav -->
 
@@ -102,12 +105,17 @@
             {{-- Sign in button end --}}
 
             {{-- side navbar trigger button start --}}
-              <li data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="flex items-center pl-4 text-sm text-white rounded-lg sm:hiddenfocus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 xl:hidden">
+            <li data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar"
+              aria-controls="default-sidebar" type="button"
+              class="flex items-center pl-4 text-sm text-white rounded-lg sm:hiddenfocus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 xl:hidden">
               <span class="sr-only">Open sidebar</span>
-              <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                  <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+              <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd" fill-rule="evenodd"
+                  d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+                </path>
               </svg>
-              </li>
+            </li>
             {{-- side navbar trigger button end --}}
 
             <!-- notifications -->
