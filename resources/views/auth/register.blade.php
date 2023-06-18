@@ -21,9 +21,9 @@
 <body class="bg-gray-100">
     {{-- Register Form Section Start --}}
     <div class="container mx-auto p-4">
-        <div class="regist-container max-w-xl mx-auto" id="regist-container">
-            <div class="max-w-md w-full">
-                <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" action="/choose-categories">
+        <div class="regist-container max-w-3xl mx-auto" id="regist-container">
+            <div class="max-w-2xl w-full">
+                <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" action="#">
                     @csrf
                     <img src="{{ asset('/img/Pahwan logo 1.png') }}" alt="Pahwan Logo" class="mx-auto"
                         id="pahwan-logo-login" draggable="false">
@@ -37,32 +37,32 @@
                                 id="email" type="email" placeholder="Enter your email">
                         </div>
                         <div class="lg:w-1/2 md:px-2 mb-4">
-                            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="nama">
                                 Username
                             </label>
                             <input
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                id="username" type="text" placeholder="Enter your username">
+                                id="nama" type="text" placeholder="Enter your username">
                         </div>
                         <div class="lg:w-1/2 md:px-2 mb-4">
-                            <label class="block text-gray-700 text-sm font-bold mb-2" for="gender">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="jenisKelamin">
                                 Gender
                             </label>
                             <select
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                id="gender">
-                                <option value="" disabled selected>Select your gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
+                                id="jenisKelamin">
+                                <option value="" selected>Select your gender</option>
+                                <option value="pria">Male</option>
+                                <option value="wanita">Female</option>
                             </select>
                         </div>
                         <div class="lg:w-1/2 md:px-2 mb-4">
-                            <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="nomorTelepon">
                                 Phone Number
                             </label>
                             <input
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                id="phone" type="tel" placeholder="Enter your phone number">
+                                id="nomorTelepon" type="tel" placeholder="Enter your phone number">
                         </div>
                         <div class="lg:w-1/2 md:px-2 mb-4">
                             <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
