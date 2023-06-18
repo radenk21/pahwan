@@ -23,7 +23,8 @@
     <div class="container mx-auto p-4">
         <div class="regist-container max-w-xl mx-auto" id="regist-container">
             <div class="max-w-md w-full">
-                <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" action="/choose-categories">
+                    @csrf
                     <img src="{{ asset('/img/Pahwan logo 1.png') }}" alt="Pahwan Logo" class="mx-auto"
                         id="pahwan-logo-login" draggable="false">
                     <div class="md:flex md:flex-wrap md:-mx-2">

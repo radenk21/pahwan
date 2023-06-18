@@ -57,6 +57,9 @@ Route::get('/question', function () {
     return view('question');
 })->name('question');
 
+Route::get('/choose-categories', function() {
+    return view('auth.categories');
+});
 // tes routes
 Route::get('/tes', function () {
     return view('admin.tes');
