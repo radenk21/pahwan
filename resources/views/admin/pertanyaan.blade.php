@@ -1,234 +1,199 @@
 <x-main-layout title="Pertanyaan">
   @section('content')
-  <!-- table 1 -->
-  <div class="flex flex-wrap -mx-3 mb-3">
-    <div class="flex-none w-full max-w-full px-3">
-      <div
-        class="relative flex flex-col min-w-0 mb-6 break-word dark:bg-slate-500 bg-white border-0 border-transparent border-solid shadow-xl dark:shadow-dark-xl rounded-2xl bg-clip-border">
-        <div class="p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-          <h6 class="dark:text-white text-black text-2xl">Pertanyaan <span
-              class="uppercase font-semibold text-white-50">{{
-              $kategori->kategori
-              }}</span>
-          </h6>
-        </div>
 
-        {{-- search --}}
-        <form action="" method="GET" class="flex m-auto w-1/4 my-3">
-          @csrf
-          <input class="rounded-s-xl py-2 px-3" value="{{ request()->pencarian }}" name="pencarian" style="width: 100%"
-            type="text" placeholder="Cari.." aria-label="Search" autocomplete="off" />
-          <button class="bg-slate-400 py-2 px-3 rounded-e-xl text-white" type="submit">
-            Cari
-          </button>
-        </form>
-        {{-- akhir search --}}
+  <h6 class="dark:text-white text-black text-xl font-semibold text-center">Pertanyaan <span
+      class="uppercase font-semibold text-white-50">{{
+      $kategori->kategori
+      }}</span>
+  </h6>
 
-        <div class="flex-auto px-0 pt-0 pb-2">
-          <div class="p-0 overflow-x-auto">
-            <table
-              class="items-center text-center w-full mb-0 align-top border-collapse dark:border-white/40 text-slate-500 ">
-              <thead class="align-bottom">
-                <tr>
-                  <th
-                    class="px-6 py-3 font-bold uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
-                    No</th>
-                  <th
-                    class="px-6 py-3 font-bold uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
-                    Tanggal</th>
-                  <th
-                    class="px-6 py-3 font-bold uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
-                    Penulis</th>
-                  <th
-                    class="px-6 py-3 pl-2 font-bold uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
-                    Pertanyaan</th>
-                  <th
-                    class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
-                    Jumlah Jawaban</th>
-                  <th
-                    class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
-                    Jumlah Report</th>
-                  <th
-                    class="px-6 py-3 font-semibold capitalize align-middle bg-transparent border-b border-collapse border-solid shadow-none dark:border-white/40 dark:text-white tracking-none whitespace-nowrap text-slate-400 opacity-70">
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                @php
-                $i = 1
-                @endphp
-                @foreach ($pertanyaans as $pertanyaan)
-                  <tr>
-                    <td
-                      class="p-2 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <span class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">{{
-                        $i + (($pertanyaans->currentPage()-1) * 5) }}</span>
-                    </td>
-                    <td
-                      class="p-2 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <span class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">{{
-                        date('d / m / Y',strtotime($pertanyaan->created_at)) }}
-                    </td>
-                    <td
-                      class="p-2 text-center bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <div class="flex px-2 py-1">
-                        <div class="flex flex-col justify-center w-full">
-                          <h6 class="mb-0 text-sm leading-normal dark:text-white">{{ $pertanyaan->pengguna->nama }}</h6>
-                          <p class="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">
-                            {{ $pertanyaan->pengguna->email }}</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="p-2 align-middle bg-transparent border-b dark:border-white/40 w-1/4 shadow-transparent">
-                      <p class="mb-0 text-xs text-wrap  font-semibold leading-tight dark:text-white dark:opacity-80">{{
-                        $pertanyaan->pertanyaan }}</p>
-                      </p>
-                    </td>
-                    <td
-                      class="p-2 w-1/10 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <span class="text-lg font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">{{
-                        $pertanyaan->jawaban->count() }}</span>
-                    </td>
-                    <td
-                      class="p-2 w-1/10 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <span class="text-lg font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">{{
-                        $pertanyaan->report_pertanyaan->count() }}</span>
-                    </td>
-                    <td
-                      class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <!-- Modals Component Start -->
-                      <div class="inline items-center justify-center py-2">
-                        <button data-target="detail-modals-component{{ $i }}"
-                          class="text-md px-2 py-1 bg-slate-300 rounded text-black font-semibold leading-tight dark:opacity-80 modal-trigger">
-                          Detail
-                        </button>
-                      </div>
-                      <!-- Modals Component Start -->
-                      <div class="inline-block items-center justify-center py-2">
-                        <button data-target="hapus-modals-component{{ $i }}"
-                          class="text-md px-2  py-1 bg-red-500 rounded ms-3 font-semibold leading-tight dark:text-white dark:opacity-80 modal-trigger">
-                          Hapus
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  {{-- modal detail --}}
-                  <div id="detail-modals-component{{ $i }}"
-                    class="fixed inset-0 flex items-center justify-center z-50 hidden ">
-                    <div id="overlay" class="fixed inset-0 bg-gray-500 opacity-0 transition-opacity"></div>
-                    <div id="modalContent"
-                      class="bg-white dark:bg-gray-800 w-full overflow-y-scroll max-h-[90%] max-w-4xl p-6 rounded-lg shadow-lg transform scale-0 transition-transform text-center">
-                      <h2 class="text-2xl font-bold mb-4 text-center dark:text-white">
-                        Detail Pertanyaan
-                      </h2>
-                      <p class="mb-4 text-lg text-center text-white">Pertanyaan {{ $pertanyaan->pengguna->nama }}
-                      </p>
-                      <p class="mb-4 text-center text-slate-300">"{{ $pertanyaan->pertanyaan
-                        }}"
-                      </p>
-                      @foreach ($pertanyaan->jawaban as $jawaban)
-                      <p class="mb-4 text-lg text-center text-white">Jawaban {{ $jawaban->pengguna->nama }}
-                      </p>
-                      <p class="mb-4 text-center text-slate-300">"{{ $jawaban->jawaban
-                        }}"
-                        @endforeach
-                      <p class="mb-4 text-lg text-center text-white">Report Pertanyaan
-                        @foreach ($pertanyaan->report_pertanyaan as $report)
-                      </p>
-                      <p class="mb-4 text-center text-slate-300"> {{
-                        date('d / m / Y',strtotime($report->created_at)) }} {{ $report->pengguna->nama
-                        }}
-                        @endforeach
-                      </p>
-                      <button id="closeModalButton" data-target="detail-modals-component{{ $i }}"
-                        class="px-4 py-2 bg-blue-500 text-white rounded modal-close mt-3">
-                        Close
-                      </button>
-                    </div>
-                  </div>
-                  {{-- end-modal detail --}}
-                  {{-- modal hapus --}}
-                  <div id="hapus-modals-component{{ $i }}"
-                    class="fixed inset-0 flex items-center justify-center z-50 hidden">
-                    <div id="overlay" class="fixed inset-0 bg-gray-500 opacity-0 transition-opacity"></div>
-                    <div id="modalContent"
-                      class="bg-white dark:bg-gray-800 w-1/2 max-w-lg p-6 rounded-lg shadow-lg transform scale-0 transition-transform text-center">
-                      <h2 class="text-2xl font-bold mb-4 text-center dark:text-white">
-                        Hapus Pertanyaan
-                      </h2>
-                      <p class="mb-4 text-center text-white">Yakin Ingin Menghapus Pertanyaan "{{
-                        $pertanyaan->pertanyaan
-                        }}
-                        ??"
-                      </p>
-                      <button id="closeModalButton" data-target="hapus-modals-component{{ $i }}"
-                        class="px-4 py-2 bg-blue-500 text-white rounded modal-close mt-3">
-                        Close
-                      </button>
-                      <form action="/pertanyaan/{{ $pertanyaan->id }}" method="POST" class="inline-block ms-10 mt-3">
-                        @csrf
-                        @method('delete')
-                        <button type="submit" class="bg-red-500 rounded-md py-2 px-3 text-white">
-                          Hapus
-                        </button>
-                      </form>
-                    </div>
-                  </div>
-                  {{-- end-modal hapus --}}
-                  @php
-                  $i++
-                  @endphp
+  <label for="table-search" class="sr-only">Search</label>
+  <div class="relative mb-6 mt-1">
+    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+      <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+          d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+          clip-rule="evenodd"></path>
+      </svg>
+    </div>
+    <form action="" method="get">
+      @csrf
+      <input type="text" id="table-search"
+        class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        name="pencarian" aria-label="pencarian" autocomplete="off" value="{{ request()->pencarian }}"
+        placeholder="Cari Pertanyaan">
+    </form>
+  </div>
+
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-4">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr class="text-center">
+          <th scope="col" class="px-6 py-3">
+            No.
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Tanggal
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Penulis
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Pertanyaan
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Jumlah Jawaban
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Jumlah Report
+          </th>
+          <th scope="col" class="px-6 py-3">
+
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        @php
+        $number = ($pertanyaans->currentPage() - 1) * $pertanyaans->perPage() + 1;
+        @endphp
+        @foreach ($pertanyaans as $pertanyaan)
+        <tr
+          class="bg-white border-b dark:bg-gray-800 text-center dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+          <td class="px-6 py-4">
+            {{ $number }}
+          </td>
+          <th scope="row" class="px-6 py-4 w-1/6 font-medium text-gray-900 dark:text-white">{{ date('d / m /
+            Y',strtotime($pertanyaan->created_at)) }}
+          </th>
+          <td class="px-6 py-4 w-1/6">
+            {{ $pertanyaan->pengguna->nama }}
+          </td>
+          <td class="px-6 py-4">
+            {{ Str::limit($pertanyaan->pertanyaan, 100, '...') }}
+          </td>
+          <td class="px-6 py-4">
+            {{ $pertanyaan->jawaban->count() }}
+          </td>
+          <td class="px-6 py-4">
+            {{ $pertanyaan->report_pertanyaan->count() }}
+          </td>
+          <td class="flex items-center px-6 py-4 space-x-3">
+            {{-- Modal trigger start --}}
+            <button data-modal-target="staticModal-{{ $number }}" data-modal-toggle="staticModal-{{ $number }}"
+              class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              type="button">
+              Detail
+            </button>
+            <button data-modal-target="popup-modal-{{ $number }}" data-modal-toggle="popup-modal-{{ $number }}"
+              class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-blue-800"
+              type="button">
+              Delete
+            </button>
+          </td>
+        </tr>
+        <!-- Detail modal -->
+        <div id="staticModal-{{ $number }}" tabindex="-1" aria-hidden="true"
+          class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+          <div class="relative w-full max-w-7xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <!-- Modal body -->
+              <div class="p-6 space-y-6 text-center">
+                <h1 class="text-center font-bold text-white">Pertanyaan</h1>
+                <h3 class="text-base leading-relaxed text-white dark:text-gray-400">
+                  {{ $pertanyaan->pertanyaan }}
+                </h3>
+                <h1 class="text-center font-bold text-white">Jawaban</h1>
+                @if ($pertanyaan->jawaban->isNotEmpty())
+                @foreach ($pertanyaan->jawaban as $jawaban)
+                <h1 class="font-semibold text-white">Penjawab : {{ $jawaban->pengguna->nama }}</h1>
+                <h3 class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                  {{ $jawaban->jawaban }}
+                </h3>
                 @endforeach
-              </tbody>
-            </table>
+                @else
+                <h3 class="text-center">Masih belum ada jawaban ...</h3>
+                @endif
+                <h1 class="text-center font-bold text-red-500">Report</h1>
+                @if ($pertanyaan->report_pertanyaan->isNotEmpty())
+                <h1 class="font-semibold text-red-500">Pelapor :
+                  @foreach ($pertanyaan->report_pertanyaan as $report)
+                  <p class="text-red-500"><span class="me-3">{{ date('d / m / Y',strtotime($report->created_at))
+                      }}</span> {{
+                    $report->pengguna->nama }}</p>
+                  @endforeach
+                </h1>
+                @else
+                <h3 class="text-center text-white">Masih belum ada laporan ...</h3>
+                @endif
+
+              </div>
+              <!-- Modal footer -->
+              <div
+                class="flex place-content-center w-full p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                <button data-modal-hide="staticModal-{{ $number }}" type="button"
+                  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Close</button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+        <!-- Detail modal end -->
+
+        {{-- Delete modal start --}}
+        <div id="popup-modal-{{ $number }}" tabindex="-1"
+          class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+          <div class="relative w-full max-w-md max-h-full">
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <button type="button"
+                class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                data-modal-hide="popup-modal-{{ $number }}">
+                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+                </svg>
+                <span class="sr-only">Close modal</span>
+              </button>
+              <div class="p-6 text-center">
+                <svg aria-hidden="true" class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+                  Yakin ingin menghapus pertanyaan <br>
+                  "{{ $pertanyaan->pertanyaan }}"
+                </h3>
+                <form action="/admin/pertanyaan/{{ $pertanyaan->id }}" method="post">
+                  @csrf
+                  @method('delete')
+                  <button data-modal-hide="popup-modal-{{ $number }}" type="submit"
+                    class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                    Hapus
+                  </button>
+                </form>
+                <button data-modal-hide="popup-modal-{{ $number }}" type="button"
+                  class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Tidak,
+                  close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{-- Delete modal end --}}
+        @php
+        $number++;
+        @endphp
+        @endforeach
+
+      </tbody>
+    </table>
+  </div>
+  <div class="w-full flex place-content-center">
+    <div class="w-48">
+      {{ $pertanyaans->links() }}
     </div>
   </div>
-
-  <div class="mb-10 w-1/5 m-auto">
-    {{ $pertanyaans->links() }}
-  </div>
-
-  <!-- Modals Listener Script Start -->
-  <script>
-    const modalTriggers = document.querySelectorAll(".modal-trigger");
-    const modalCloses = document.querySelectorAll(".modal-close");
-    const modals = document.querySelectorAll(".modal");
-
-    modalTriggers.forEach((trigger) => {
-      trigger.addEventListener("click", () => {
-        const targetModalId = trigger.getAttribute("data-target");
-        const targetModal = document.getElementById(targetModalId);
-        targetModal.classList.remove("hidden");
-        document.body.classList.add("overflow-hidden");
-
-        setTimeout(() => {
-          targetModal.querySelector("#overlay").classList.add("opacity-50");
-          targetModal
-            .querySelector("#modalContent")
-            .classList.add("scale-100");
-        }, 100);
-      });
-    });
-
-    modalCloses.forEach((close) => {
-      close.addEventListener("click", () => {
-        const targetModalId = close.getAttribute("data-target");
-        const targetModal = document.getElementById(targetModalId);
-        targetModal.querySelector("#overlay").classList.remove("opacity-50");
-        targetModal
-          .querySelector("#modalContent")
-          .classList.remove("scale-100");
-
-        setTimeout(() => {
-          targetModal.classList.add("hidden");
-          document.body.classList.remove("overflow-hidden");
-        }, 300);
-      });
-    });
-  </script>
-  <!-- Modals Listener Script End -->
   @endsection
 </x-main-layout>
