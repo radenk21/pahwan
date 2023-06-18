@@ -1,7 +1,7 @@
 function toggleSidebar() {
   const replyDiv = document.getElementById("sidebar");
 
-  replyDiv.classList.remove("translate-x-full");
+  replyDiv.classList.remove("translate-x-[400px]");
   replyDiv.classList.add("translate-x-0");
 }
 
@@ -9,7 +9,7 @@ function closeSidebar() {
   const replyDiv = document.getElementById("sidebar");
 
   replyDiv.classList.remove("translate-x-0");
-  replyDiv.classList.add("translate-x-full");
+  replyDiv.classList.add("translate-x-[400px]");
 }
 
 // navbar

@@ -1,5 +1,5 @@
-  <div class="sticky top-0 z-50 bg-white">
-    <div class="relative flex flex-col items-center shadow-md">
+  <div class="relative sticky top-0 z-50 bg-white">
+    <div class="flex flex-col items-center shadow-md">
       <div class="h-16 border-b  flex w-full lg:w-4/5 items-center px-4 md:px-8 justify-between">
         <a href="{{route('index')}}">
           <h1 class="text-xl font-bold text-customBlue">PAHWAN</h1>
@@ -15,9 +15,11 @@
             Questions
           </a>
           <div class="input-wrapper sm:hidden md:block lg:block">
-            <input type="text" placeholder="Search here..." name="text" class="bg-white border-none px-4 py-2 text-sm 
-            lg:w-40 focus:lg:w-80 focus:transition-all duration-300 ease-in-out rounded-lg text-lightcoral shadow-md
-            focus:outline-lightcoral hidden md:block" autocomplete="off">
+            <form action="">
+              <input type="text" placeholder="Search here..." name="text" class="bg-white border-none px-4 py-2 text-sm 
+              lg:w-40 focus:lg:w-80 focus:transition-all duration-300 ease-in-out rounded-lg text-lightcoral shadow-md
+              focus:outline-lightcoral hidden md:block" autocomplete="off">
+            </form>
           </div>        
         </nav>
         <a href="{{route('profile')}}" class="py-2.5 px-4 rounded hidden md:block">
@@ -35,7 +37,7 @@
         {{-- sidebar button end --}}
       </div>
       <div id="sidebar" class="sidebar absolute py-2 px-4 top-0 right-0 w-60 h-screen bg-customBlue 
-      shadow-lg border-l rounded-l-2xl transform translate-x-full md:hidden transition duration-200 ease-in-out">
+      shadow-lg border-l rounded-l-2xl transform translate-x-[400px] md:hidden transition duration-200 ease-in-out">
       <div class="flex justify-between">
         <button class="text-2xl text-white" onclick="closeSidebar()">&times;</button>
         <a href="{{route('profile')}}">
