@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminJawabanController;
 use App\Http\Controllers\AdminKategoriController;
 use App\Http\Controllers\AdminPertanyaanController;
 use App\Http\Controllers\AdminPertanyaanListController;
+use App\Http\Controllers\AdminReportListController;
 use App\Http\Controllers\AdminUserListController;
 
 /*
@@ -25,6 +26,7 @@ Route::get('/admin', [AdminDashboardController::class, 'index']);
 Route::resource('/admin/kategori', AdminKategoriController::class);
 Route::get('/admin/pertanyaan-list', [AdminPertanyaanListController::class, 'index']);
 Route::get('/admin/user-list', [AdminUserListController::class, 'index']);
+Route::get('/admin/report-list', [AdminReportListController::class, 'index']);
 
 Route::get('/admin/pertanyaan/{idKategori}', [AdminPertanyaanController::class, 'index']);
 Route::resource('/admin/pertanyaan', AdminPertanyaanController::class)->except('index');
@@ -32,10 +34,11 @@ Route::get('/admin/jawaban/{idKategori}', [AdminJawabanController::class, 'index
 Route::resource('/admin/jawaban', AdminJawabanController::class)->except('index');
 Route::get('/admin/pengguna/{idPengguna}', [AdminUserListController::class, 'index']);
 Route::resource('/admin/pengguna', AdminUserListController::class)->except('index');
+Route::delete('/admin/report-pertanyaan/{report_pertanyaan}', [AdminReportListController::class, 'destroyPertanyaan']);
+Route::delete('/admin/report-jawaban/{report_jawaban}', [AdminReportListController::class, 'destroyJawaban']);
+Route::delete('/admin/report-komentar/{report_komentar}', [AdminReportListController::class, 'destroyKomentar']);
 
-Route::get('/admin/report-list', function () {
-    return view('admin.report-list');
-});
+
 // MAIN ROUTES
 Route::get('/index', function () {
     return view('index');

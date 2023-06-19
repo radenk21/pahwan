@@ -51,9 +51,10 @@ class AdminUserListController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        Pengguna::find($id)->update(['is_ban' => $request->is_ban]);
+        return back();
     }
 
     /**
