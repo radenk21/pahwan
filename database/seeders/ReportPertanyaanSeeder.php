@@ -21,7 +21,7 @@ class ReportPertanyaanSeeder extends Seeder
         $pengunaIds = Pengguna::pluck('id')->toArray();
         $pertanyaanIds = Pertanyaan::pluck('id')->toArray();
 
-        for ($i = 1; $i <= 4; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
             $report[] = [
                 'pengguna_id'   => collect($pengunaIds)->random(),
                 'pertanyaan_id' => collect($pertanyaanIds)->random(),

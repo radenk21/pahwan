@@ -86,11 +86,18 @@
                             @endforeach
                             {{ $reportCount }}
                         </td>                                
-                        <td class="flex items-center px-6 py-4 space-x-3">
+                        <td class="flex items-center justify-center px-6 py-4 space-x-3">
                             {{-- Modal trigger start --}}
-                            <button data-modal-target="popup-modal-{{ $number }}" data-modal-toggle="popup-modal-{{ $number }}" class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-blue-800" type="button">
-                                BAN
-                            </button>
+                            @if ($pengguna->is_ban === 0)
+                                <button data-modal-target="popup-modal-{{ $number }}" data-modal-toggle="popup-modal-{{ $number }}" class="block text-white bg-rose-700 hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-blue-800" type="button">
+                                    BAN
+                                </button>
+                            @else
+                                <button data-modal-target="popup-modal-{{ $number }}" data-modal-toggle="popup-modal-{{ $number }}" class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-blue-800" type="button">
+                                    LEPAS BAN
+                                </button>
+                                
+                            @endif
                         </td>
                     </tr>
                     {{-- Delete modal start --}}
@@ -104,15 +111,30 @@
                                     <div class="p-6 text-center">
                                         <svg aria-hidden="true" class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                         <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-                                            Yakin ingin men-<strong>BAND</strong> pengguna <br>
+                                            Yakin ingin 
+                                            @if ($pengguna->is_ban === 0)
+                                                men-<strong>BAN</strong> 
+                                            @else
+                                                melepas <strong>BAN</strong>
+                                            @endif
+                                            pengguna <br>
                                             {{-- "{{ $pengguna->pengguna }}" --}}
                                         </h3>
                                         <form action="/admin/pengguna/{{ $pengguna->id }}" method="post">
                                             @csrf
                                             @method('put')
-                                            <button data-modal-hide="popup-modal-{{ $number }}" type="submit" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                                                BAN
-                                            </button>
+                                            @if ($pengguna->is_ban === 0)
+                                                <input type="hidden" name="is_ban" value="1">
+                                                <button data-modal-hide="popup-modal-{{ $number }}" type="submit" value="1" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                                                    BAN
+                                                </button>
+                                            @else
+                                                <input type="hidden" name="is_ban" value="0">
+                                                <button data-modal-hide="popup-modal-{{ $number }}" type="submit" value="1" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                                                    LEPAS BAN
+                                                </button>
+                                                
+                                            @endif
                                         </form>
                                         <button data-modal-hide="popup-modal-{{ $number }}" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Tidak, close</button>
                                     </div>
