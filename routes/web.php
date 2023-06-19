@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\AdminDashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminJawabanController;
 use App\Http\Controllers\AdminKategoriController;
-use App\Http\Controllers\AdminPertanyaanController;
-use App\Http\Controllers\AdminPertanyaanListController;
-use App\Http\Controllers\AdminReportListController;
 use App\Http\Controllers\AdminUserListController;
+use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminPertanyaanController;
+use App\Http\Controllers\AdminReportListController;
+use App\Http\Controllers\AdminPertanyaanListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,9 +41,7 @@ Route::delete('/admin/report-komentar/{report_komentar}', [AdminReportListContro
 
 
 // MAIN ROUTES
-Route::get('/index', function () {
-    return view('index');
-})->name('index');
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::get('/login', function () {
     return view('auth.login');
@@ -60,7 +59,7 @@ Route::get('/question', function () {
     return view('question');
 })->name('question');
 
-Route::get('/choose-categories', function() {
+Route::get('/choose-categories', function () {
     return view('auth.categories');
 });
 // tes routes
